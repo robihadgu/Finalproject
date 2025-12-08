@@ -1,1 +1,12 @@
-# Finalproject
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Project</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Welcome to My Final Project Website</h1>
+    <p>This site is hosted using GitHub Pages.</p>
+</body>
+</html>
+
