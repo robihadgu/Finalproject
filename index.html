@@ -171,8 +171,6 @@
       font-size: 0.62rem;
     }
 
-    figure { margin: 0; }
-
     img {
       max-width: 100%;
       display: block;
@@ -184,8 +182,6 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
-
-    .hero-img-grid { margin-top: 0.6rem; }
 
     .card {
       border-radius: 1.1rem;
@@ -213,52 +209,6 @@
       border: 1px dashed var(--border);
       padding: 0.9rem;
       background: rgba(15, 23, 42, 0.9);
-    }
-
-    .step-number {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.15rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    ul { margin: 0.35rem 0 0.5rem 1.1rem; padding: 0; color: var(--muted); }
-
-    li { margin-bottom: 0.25rem; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.55fr);
-      gap: 1.2rem;
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      padding: 0.18rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .quote {
-      border-left: 3px solid var(--accent);
-      padding-left: 0.7rem;
-      margin-top: 0.45rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    .big-number {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.1rem;
     }
 
     footer {
@@ -316,12 +266,10 @@
           Real vs AI Generated
         </div>
 
-        <div class="hero-img-grid">
-          <figure>
-            <img src="realai.jpg" />
-            <figcaption>How AI learns facial structures and generates realistic identities.</figcaption>
-          </figure>
-        </div>
+        <figure>
+          <img src="realai.jpg" />
+          <figcaption>How AI learns facial structures and generates realistic identities.</figcaption>
+        </figure>
       </aside>
     </div>
 
@@ -332,10 +280,12 @@
           <h3>🔹 Simple Definition</h3>
           <p>A deepfake is a video, image, or audio clip where AI makes it look like a real person did or said something they never did.</p>
         </article>
+
         <article>
           <h3>🔹 Mental Picture</h3>
           <p>A deepfake works like a digital mask that imitates your face and voice and places them into new scenarios.</p>
         </article>
+
         <article>
           <h3>🔹 Why It Matters</h3>
           <p>They can influence public opinion, manipulate employees, and cause personal or social harm.</p>
@@ -344,24 +294,21 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- HOW -->
   <section id="how">
-    <h2>How Deepfakes Are Made – 3 Clear Steps</h2>
-    <p>The images help walk the audience through the pipeline in a simple visual way.</p>
+    <h2>How Deepfakes Are Made</h2>
 
     <div class="step-grid">
 
-      <!-- STEP 1 -->
       <div class="step">
         <div class="step-number">Step 1 · Collect real data</div>
         <figure>
           <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" />
           <figcaption>Many videos and photos of the same person.</figcaption>
         </figure>
-        <p>The system learns how the person looks from many angles and in many conditions.</p>
+        <p>The system learns how the person looks from many angles and conditions.</p>
       </div>
 
-      <!-- STEP 2 UPDATED IMAGE -->
       <div class="step">
         <div class="step-number">Step 2 · Train the AI model</div>
         <figure>
@@ -371,7 +318,6 @@
         <p>A GAN model generates fake faces while another model critiques them until they look real.</p>
       </div>
 
-      <!-- STEP 3 UPDATED IMAGE -->
       <div class="step">
         <div class="step-number">Step 3 · Produce the deepfake</div>
         <figure>
@@ -389,10 +335,11 @@
     <h2>Real-World Examples: Where Deepfakes Appear</h2>
 
     <div class="card-grid">
+
       <article class="card">
         <h3>1️⃣ Politics</h3>
         <figure>
-          <img src="https://images.pexels.com/photos/21067/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" />
+          <img src="step1.jpg" alt="Deepfake political manipulation example" />
           <figcaption>Fake speeches and announcements.</figcaption>
         </figure>
         <ul>
@@ -418,7 +365,7 @@
       <article class="card">
         <h3>3️⃣ Non-consensual Content</h3>
         <figure>
-          <img src="https://images.pexels.com/photos/5723267/pexels-photo-5723267.jpeg?auto=compress&cs=tinysrgb&w=600" />
+          <img src="step33.jpg" alt="Non-consensual deepfake example" />
           <figcaption>Faces placed into harmful media.</figcaption>
         </figure>
         <ul>
@@ -427,6 +374,7 @@
           <li>Difficult to remove</li>
         </ul>
       </article>
+
     </div>
   </section>
 
@@ -473,12 +421,11 @@
           </ul>
         </div>
 
-        <div>
-          <figure>
-            <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=600" />
-            <figcaption>Verification becomes harder in a deepfake world.</figcaption>
-          </figure>
-        </div>
+        <figure>
+          <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=600" />
+          <figcaption>Verification becomes harder in a deepfake world.</figcaption>
+        </figure>
+        
       </div>
     </div>
   </section>
@@ -513,10 +460,8 @@
   </section>
 
 </main>
-
-
-
 </body>
 </html>
+
 
 
