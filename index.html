@@ -86,7 +86,11 @@
       padding: 2.4rem 1.2rem 3rem;
     }
 
-    section { margin-bottom: 3rem; }
+    /* 🟦 SCROLL FIX ADDED BELOW */
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 90px; /* prevents anchor title from hiding behind header */
+    }
 
     h1, h2, h3 { font-weight: 700; line-height: 1.25; }
 
@@ -396,6 +400,34 @@
     </div>
   </section>
 
+  <!-- ETHICS -->
+  <section id="ethics">
+    <h2>Ethics: How We Judge Deepfakes</h2>
+
+    <div class="two-col">
+      <article class="card">
+        <span class="badge">Lens 1 · Utilitarianism</span>
+        <h3>Does it create more good or harm?</h3>
+        <ul>
+          <li><strong>Good:</strong> film effects, education.</li>
+          <li><strong>Harm:</strong> misinformation, fraud, harassment.</li>
+        </ul>
+        <p class="quote">Currently, deepfakes cause more harm than good without strong controls.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">Lens 2 · Deontology</span>
+        <h3>Are basic rights respected?</h3>
+        <ul>
+          <li>Consent violations</li>
+          <li>Deception</li>
+          <li>Privacy invasion</li>
+        </ul>
+        <p class="quote">Most malicious deepfakes violate moral duties like honesty and autonomy.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- IMPACT -->
   <section id="impact">
     <h2>Big Picture: What Deepfakes Do to Society</h2>
@@ -413,7 +445,6 @@
 
         <div>
           <figure>
-            <!-- UPDATED IMAGE -->
             <img src="final.jpg" alt="Impact illustration" />
             <figcaption>Verification becomes harder in a deepfake world.</figcaption>
           </figure>
@@ -455,5 +486,4 @@
 
 </body>
 </html>
-
 
