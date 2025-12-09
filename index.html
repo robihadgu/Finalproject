@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Deepfake Technology – Visual Guide</title>
+  <title>Deepfakes Explained – Simple Visual Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
     :root {
       --bg: #020617;
@@ -22,7 +21,8 @@
 
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%);
       color: var(--text);
       line-height: 1.6;
@@ -31,42 +31,45 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: rgba(2, 6, 23, 0.9);
+      background: linear-gradient(
+        to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.86)
+      );
       border-bottom: 1px solid var(--border);
     }
 
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.8rem 1.2rem;
+      padding: 0.7rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
 
     .nav-title {
       font-weight: 600;
+      letter-spacing: 0.06em;
       font-size: 0.9rem;
       text-transform: uppercase;
       color: var(--muted);
-      letter-spacing: 0.06em;
     }
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.6rem;
       font-size: 0.85rem;
     }
 
     .nav-links a {
       padding: 0.25rem 0.7rem;
-      border-radius: 99px;
+      border-radius: 999px;
       border: 1px solid transparent;
       color: var(--muted);
     }
@@ -77,118 +80,199 @@
       color: var(--text);
     }
 
-    /* FIX NAVBAR SCROLL OFFSET */
-    section {
-      scroll-margin-top: 90px;
-    }
-
     main {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 2.4rem 1.2rem;
+      padding: 2.4rem 1.2rem 3rem;
     }
 
-    h1 { font-size: 3rem; margin-bottom: 0.7rem; }
-    h2 { font-size: 1.7rem; margin-bottom: 0.8rem; }
-    h3 { font-size: 1.1rem; margin-bottom: 0.4rem; color: var(--text); }
+    section { margin-bottom: 3rem; }
 
-    /* HERO */
+    h1, h2, h3 { font-weight: 700; line-height: 1.25; }
+
+    h1 {
+      font-size: clamp(2.3rem, 3vw + 1.6rem, 3.2rem);
+      margin: 0 0 0.7rem;
+    }
+
+    h2 { font-size: 1.7rem; margin-bottom: 0.8rem; }
+
+    h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+
+    p { margin: 0.35rem 0 0.5rem; color: var(--muted); }
+
     .hero {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
       gap: 2rem;
+      align-items: center;
       margin-bottom: 2.7rem;
     }
 
-    .hero-subtitle { font-size: 1.05rem; color: var(--muted); }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-tag span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e, #15803d);
+    }
+
+    .hero-subtitle {
+      font-size: 1.03rem;
+      max-width: 34rem;
+    }
+
+    .meta {
+      margin-top: 0.7rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .meta strong { color: var(--text); }
 
     .hero-card {
       border-radius: 1.3rem;
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
       border: 1px solid var(--border);
-      background: #0f172a;
-      padding: 1.2rem;
+      padding: 1.1rem 1.15rem;
     }
 
     .pill {
-      background: rgba(15, 23, 42, 0.85);
-      padding: 0.3rem 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 999px;
-      width: max-content;
-      font-size: 0.8rem;
-      border: 1px solid rgba(148,163,184,0.4);
-      margin-bottom: 0.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      background: rgba(15, 23, 42, 0.85);
     }
 
-    img { width: 100%; border-radius: 0.9rem; }
+    .pill-icon {
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+    }
+
+    figure { margin: 0; }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 0.9rem;
+    }
+
+    figcaption {
+      margin-top: 0.3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-img-grid { margin-top: 0.6rem; }
 
     .card {
-      padding: 1.3rem;
       border-radius: 1.1rem;
-      background: #0f172a;
+      background: rgba(15, 23, 42, 0.96);
       border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
+      margin-top: 0.6rem;
     }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.1rem;
     }
 
     .step-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 0.7rem;
     }
 
     .step {
-      padding: 1rem;
-      border: 1px dashed var(--border);
       border-radius: 1rem;
-      background: rgba(15,23,42,0.9);
+      border: 1px dashed var(--border);
+      padding: 0.9rem;
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .step-number {
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    /* NEW ETHICS LAYOUT */
-    .ethics-grid {
+    ul { margin: 0.35rem 0 0.5rem 1.1rem; padding: 0; color: var(--muted); }
+
+    li { margin-bottom: 0.25rem; }
+
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.55fr);
+      gap: 1.2rem;
     }
 
-    .ethics-card {
-      background: #0f172a;
-      padding: 1.4rem;
-      border-radius: 1.1rem;
-      border: 1px solid var(--border);
-    }
-
-    .ethics-icon {
-      font-size: 2rem;
-      margin-bottom: 0.6rem;
+    .badge {
       display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      margin-bottom: 0.2rem;
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      padding: 2rem 0;
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.7rem;
+      margin-top: 0.45rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    .big-number {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.1rem;
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.2rem 2.3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
       border-top: 1px solid var(--border);
     }
-
   </style>
 </head>
 
 <body>
-
 <header>
   <div class="nav">
     <div class="nav-title">Deepfake Technology</div>
@@ -203,171 +287,232 @@
   </div>
 </header>
 
-
 <main>
 
-<!-- INTRO -->
-<section id="intro">
-  <div class="hero">
-    <div>
-      <h1>Unmasking Deepfakes: How AI Recreates Human Identity</h1>
-
-      <p class="hero-subtitle">
-        Deepfake technology uses AI to recreate or alter a person’s face and voice with stunning realism.
-      </p>
-
-      <p class="hero-subtitle"><strong>Project Topic:</strong> Deepfake technology as an advanced information technology.</p>
-    </div>
-
-    <aside class="hero-card">
-      <div class="pill">Real vs AI Generated</div>
-      <img src="realai.jpg" alt="deepfake illustration">
-    </aside>
-  </div>
-</section>
-
-
-<!-- WHAT IS A DEEPFAKE -->
-<section class="card">
-  <h2>What Is a Deepfake?</h2>
-  <div class="card-grid">
-    <div>
-      <h3>🔹 Simple Definition</h3>
-      <p>A deepfake is AI-generated media making a person appear to do or say something they never did.</p>
-    </div>
-    <div>
-      <h3>🔹 Mental Picture</h3>
-      <p>Think of it as a digital mask that copies a face and voice with extreme detail.</p>
-    </div>
-    <div>
-      <h3>🔹 Why It Matters</h3>
-      <p>They can impact politics, business, relationships, and public trust.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- HOW DEEPFAKES ARE MADE -->
-<section id="how">
-  <h2>How Deepfakes Are Made</h2>
-
-  <div class="step-grid">
-
-    <div class="step">
-      <div class="step-number">Step 1 · Collect real data</div>
-      <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg">
-      <p>The AI studies many images and videos of a person.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">Step 2 · Train the AI model</div>
-      <img src="ai.jpg">
-      <p>GANs create fake faces and refine them until they look real.</p>
-    </div>
-
-    <div class="step">
-      <div class="step-number">Step 3 · Produce the deepfake</div>
-      <img src="step3.png">
-      <p>The generated face or voice is placed into new footage.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- EXAMPLES -->
-<section id="examples">
-  <h2>Real-World Examples</h2>
-
-  <div class="card-grid">
-    <div class="card">
-      <h3>1️⃣ Politics</h3>
-      <img src="step1.jpg">
-      <p>Fake speeches and manipulated political content.</p>
-    </div>
-
-    <div class="card">
-      <h3>2️⃣ Fraud & Scams</h3>
-      <img src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg">
-      <p>Deepfake CEOs trick employees into sending money.</p>
-    </div>
-
-    <div class="card">
-      <h3>3️⃣ Non-consensual Content</h3>
-      <img src="step33.jpg">
-      <p>Faces put into harmful or explicit content without consent.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ETHICS -->
-<section id="ethics">
-  <h2>Ethics: How We Evaluate Deepfakes</h2>
-
-  <div class="ethics-grid">
-
-    <div class="ethics-card">
-      <span class="ethics-icon">⚖️</span>
-      <h3>Utilitarianism</h3>
-      <p>Weighs total harm vs total benefit.</p>
-      <p><strong>Conclusion:</strong> Today, harms outweigh benefits.</p>
-    </div>
-
-    <div class="ethics-card">
-      <span class="ethics-icon">🔒</span>
-      <h3>Deontology</h3>
-      <p>Focuses on consent, autonomy, and truth.</p>
-      <p><strong>Conclusion:</strong> Most deepfakes violate basic moral duties.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- IMPACT -->
-<section id="impact">
-  <h2>Big Picture: What Deepfakes Do to Society</h2>
-
-  <div class="card">
-    <div class="two-col">
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="hero">
       <div>
-        <h3>Key Effects</h3>
-        <ul>
-          <li>Reduced trust in media</li>
-          <li>Easier impersonation and fraud</li>
-          <li>Misinformation in elections</li>
-        </ul>
+        <!-- hero-tag removed on purpose -->
+        <h1>Unmasking Deepfakes: How AI Recreates Human Identity</h1>
+
+        <p class="hero-subtitle">
+          Deepfake technology uses artificial intelligence to recreate or alter a person's face and voice
+          with stunning realism.
+        </p>
+
+        <div class="meta">
+          <p><strong>Project topic:</strong> Deepfake technology as an advanced information technology.</p>
+        </div>
       </div>
 
-      <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg">
-    </div>
-  </div>
-</section>
+      <aside class="hero-card">
+        <div class="pill">
+          <span class="pill-icon">AI</span>
+          Real vs AI Generated
+        </div>
 
-
-<!-- TAKEAWAYS -->
-<section id="takeaways">
-  <h2>Final Takeaways</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>1. Deepfakes Are Powerful</h3>
-      <p>AI recreates faces and voices with stunning realism.</p>
-    </div>
-
-    <div class="card">
-      <h3>2. Harm Is Bigger Than Good</h3>
-      <p>Fraud, misinformation, and privacy issues dominate.</p>
+        <div class="hero-img-grid">
+          <figure>
+            <img src="realai.jpg" alt="Real vs AI generated face comparison" />
+            <figcaption>How AI learns facial structures and generates realistic identities.</figcaption>
+          </figure>
+        </div>
+      </aside>
     </div>
 
     <div class="card">
-      <h3>3. We Need Safeguards</h3>
-      <p>Detection tools, laws, and education are essential.</p>
+      <h2>What Is a Deepfake?</h2>
+      <div class="card-grid">
+        <article>
+          <h3>🔹 Simple Definition</h3>
+          <p>A deepfake is a video, image, or audio clip where AI makes it look like a real person did or said something they never did.</p>
+        </article>
+        <article>
+          <h3>🔹 Mental Picture</h3>
+          <p>A deepfake works like a digital mask that imitates your face and voice and places them into new scenarios.</p>
+        </article>
+        <article>
+          <h3>🔹 Why It Matters</h3>
+          <p>They can influence public opinion, manipulate employees, and cause personal or social harm.</p>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2>How Deepfakes Are Made</h2>
+
+    <div class="step-grid">
+
+      <!-- STEP 1 -->
+      <div class="step">
+        <div class="step-number">Step 1 · Collect real data</div>
+        <figure>
+          <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Multiple face photos" />
+          <figcaption>Many videos and photos of the same person.</figcaption>
+        </figure>
+        <p>The system learns how the person looks from many angles and in many conditions.</p>
+      </div>
+
+      <!-- STEP 2 UPDATED IMAGE -->
+      <div class="step">
+        <div class="step-number">Step 2 · Train the AI model</div>
+        <figure>
+          <img src="ai.jpg" alt="AI model training visualization" />
+          <figcaption>The AI learns to generate realistic fake images and improve them.</figcaption>
+        </figure>
+        <p>A GAN model generates fake faces while another model critiques them until they look real.</p>
+      </div>
+
+      <!-- STEP 3 UPDATED IMAGE -->
+      <div class="step">
+        <div class="step-number">Step 3 · Produce the deepfake</div>
+        <figure>
+          <img src="step3.png" alt="Video editing timeline" />
+          <figcaption>Fake identity blended into new video.</figcaption>
+        </figure>
+        <p>The trained model overlays the AI-generated face or voice onto new footage.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section id="examples">
+    <h2>Real-World Examples: Where Deepfakes Appear</h2>
+
+    <div class="card-grid">
+      <article class="card">
+        <h3>1️⃣ Politics</h3>
+        <figure>
+          <img src="step1.jpg" alt="Deepfake political example" />
+          <figcaption>Fake speeches and announcements.</figcaption>
+        </figure>
+        <ul>
+          <li>AI-generated candidate videos</li>
+          <li>Fake statements spread online</li>
+          <li>Voter manipulation</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>2️⃣ Fraud & Business Scams</h3>
+        <figure>
+          <img src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Video call impersonation" />
+          <figcaption>Fake CEO impersonation</figcaption>
+        </figure>
+        <ul>
+          <li>Fake video calls</li>
+          <li>Scams requesting money</li>
+          <li>Identity spoofing</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>3️⃣ Non-consensual Content</h3>
+        <figure>
+          <img src="step33.jpg" alt="Non-consensual deepfake" />
+          <figcaption>Faces placed into harmful media.</figcaption>
+        </figure>
+        <ul>
+          <li>Targets women and minors</li>
+          <li>Major emotional harm</li>
+          <li>Difficult to remove</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ETHICS -->
+  <section id="ethics">
+    <h2>Ethics: How We Judge Deepfakes</h2>
+
+    <div class="two-col">
+      <article class="card">
+        <span class="badge">Lens 1 · Utilitarianism</span>
+        <h3>Does it create more good or harm?</h3>
+        <ul>
+          <li><strong>Good:</strong> film effects, education.</li>
+          <li><strong>Harm:</strong> misinformation, fraud, harassment.</li>
+        </ul>
+        <p class="quote">Currently, deepfakes cause more harm than good without strong controls.</p>
+      </article>
+
+      <article class="card">
+        <span class="badge">Lens 2 · Deontology</span>
+        <h3>Are basic rights respected?</h3>
+        <ul>
+          <li>Consent violations</li>
+          <li>Deception</li>
+          <li>Privacy invasion</li>
+        </ul>
+        <p class="quote">Most malicious deepfakes violate moral duties like honesty and autonomy.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <h2>Big Picture: What Deepfakes Do to Society</h2>
+
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <h3>Key Areas</h3>
+          <ul>
+            <li><strong>Trust:</strong> people doubt videos/photos</li>
+            <li><strong>Safety:</strong> easier impersonation</li>
+            <li><strong>Democracy:</strong> misinformation spreads</li>
+          </ul>
+        </div>
+
+        <div>
+          <figure>
+            <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person checking news" />
+            <figcaption>Verification becomes harder in a deepfake world.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKEAWAYS -->
+  <section id="takeaways">
+    <h2>Final Takeaways</h2>
+
+    <div class="card-grid">
+      <article class="card">
+        <div class="big-number">1</div>
+        <h3>Deepfakes are powerful</h3>
+        <p>AI recreates faces and voices with high realism, making truth harder to verify.</p>
+      </article>
+
+      <article class="card">
+        <div class="big-number">2</div>
+        <h3>Harm outweighs good currently</h3>
+        <p>From fraud to misinformation, deepfakes create widespread risks.</p>
+      </article>
+
+      <article class="card">
+        <div class="big-number">3</div>
+        <h3>We need safeguards</h3>
+        <ul>
+          <li>Better detection tools</li>
+          <li>Stricter laws</li>
+          <li>Public education</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
 </main>
+
+
+</body>
+</html>
+
 
 
 
