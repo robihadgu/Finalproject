@@ -109,26 +109,6 @@
       margin-bottom: 2.7rem;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid var(--border);
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-tag span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: radial-gradient(circle, #22c55e, #15803d);
-    }
-
     .hero-subtitle {
       font-size: 1.03rem;
       max-width: 34rem;
@@ -260,19 +240,11 @@
       color: var(--accent);
       margin-bottom: 0.1rem;
     }
-
-    footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.2rem 2.3rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
   </style>
 </head>
 
 <body>
+
 <header>
   <div class="nav">
     <div class="nav-title">Deepfake Technology</div>
@@ -293,7 +265,6 @@
   <section id="intro">
     <div class="hero">
       <div>
-        <!-- hero-tag removed on purpose -->
         <h1>Unmasking Deepfakes: How AI Recreates Human Identity</h1>
 
         <p class="hero-subtitle">
@@ -425,34 +396,6 @@
     </div>
   </section>
 
-  <!-- ETHICS -->
-  <section id="ethics">
-    <h2>Ethics: How We Judge Deepfakes</h2>
-
-    <div class="two-col">
-      <article class="card">
-        <span class="badge">Lens 1 · Utilitarianism</span>
-        <h3>Does it create more good or harm?</h3>
-        <ul>
-          <li><strong>Good:</strong> film effects, education.</li>
-          <li><strong>Harm:</strong> misinformation, fraud, harassment.</li>
-        </ul>
-        <p class="quote">Currently, deepfakes cause more harm than good without strong controls.</p>
-      </article>
-
-      <article class="card">
-        <span class="badge">Lens 2 · Deontology</span>
-        <h3>Are basic rights respected?</h3>
-        <ul>
-          <li>Consent violations</li>
-          <li>Deception</li>
-          <li>Privacy invasion</li>
-        </ul>
-        <p class="quote">Most malicious deepfakes violate moral duties like honesty and autonomy.</p>
-      </article>
-    </div>
-  </section>
-
   <!-- IMPACT -->
   <section id="impact">
     <h2>Big Picture: What Deepfakes Do to Society</h2>
@@ -470,7 +413,8 @@
 
         <div>
           <figure>
-            <img src="https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Person checking news" />
+            <!-- UPDATED IMAGE -->
+            <img src="final.jpg" alt="Impact illustration" />
             <figcaption>Verification becomes harder in a deepfake world.</figcaption>
           </figure>
         </div>
@@ -509,10 +453,7 @@
 
 </main>
 
-<footer>
-  <p>This site is a course project created for a live presentation on deepfake technology.</p>
-</footer>
-
 </body>
 </html>
+
 
